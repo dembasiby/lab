@@ -60,8 +60,6 @@ We can also define new deployment definition in yaml.
 ```bash
 kubectl create deployment [name] --image=[image] --replicas=[#replicas] --dry-run=client -o yaml > filename.yaml
 ```
-```
-```
 
 Example
 
@@ -97,8 +95,6 @@ spec:
         resources: {}
 status: {}
 ```
-```
-```
 
 ## List pods with ips, nods, etc. 
 
@@ -110,8 +106,3 @@ kubectl get pods -o wide
 ```bash
 kubectl exec -it [pod name] -- /bin/bash
 ```
-```
-```
-
-
-
