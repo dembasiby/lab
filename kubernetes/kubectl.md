@@ -11,6 +11,7 @@ echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permane
 ```
 
 ## Generate yaml definition
+### Pod Creation or Update
 ```bash
 kubectl run [name] --image=[image] --dry-run=client -o yaml
 ```
@@ -53,6 +54,52 @@ We can also use `apply` which either create a new pod if it doesn't exist or upd
 kubectl apply -f [filename]
 ```
 
+### Deployment Creation
+We can also define new deployment definition in yaml.
+
+```bash
+kubectl create deployment [name] --image=[image] --replicas=[#replicas] --dry-run=client -o yaml > filename.yaml
+```
+```
+```
+
+Example
+
+```bash
+kubectl create deployment test --image=httpd --replicas=3 --dry-run=client -o yaml > test.yaml
+```
+
+This creates a new deployment `test` with 3 replicas with the following content.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: test
+  name: test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: test
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: test
+    spec:
+      containers:
+      - image: httpd
+        name: httpd
+        resources: {}
+status: {}
+```
+```
+```
+
 ## List pods with ips, nods, etc. 
 
 ```bash
@@ -65,5 +112,6 @@ kubectl exec -it [pod name] -- /bin/bash
 ```
 ```
 ```
+
 
 
