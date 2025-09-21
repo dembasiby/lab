@@ -41,6 +41,19 @@ spec:
 status: {}
 ```
 
+### Adding A Specific Namespace
+When we create a new pod, it is created in the default namespace. But we can specify a namespace with either `--namespace` or `-n` flags.
+
+```bash
+kubectl run [name] --image=[image] --namespace=[namespace]
+```
+
+We may want sometimes to change the default namespace. In this case, we can run the following command
+
+```bash
+kubectl config set-context --current --namespace=[namespace]
+```
+
 ## Create/update a pod from a yaml file
 Once the file create or updated, we can use the `create` commands:
 
@@ -106,3 +119,5 @@ kubectl get pods -o wide
 ```bash
 kubectl exec -it [pod name] -- /bin/bash
 ```
+
+
