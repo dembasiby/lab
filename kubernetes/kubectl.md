@@ -109,6 +109,14 @@ spec:
 status: {}
 ```
 
+
+Once the deployment created, in the case of `Mealie`, we can access the app on our local network using port Forwarding.
+
+```bash
+kubectl port-forward pods/[pod] [port_number]
+```
+
+
 ## List pods with ips, nods, etc. 
 
 ```bash
@@ -119,5 +127,13 @@ kubectl get pods -o wide
 ```bash
 kubectl exec -it [pod name] -- /bin/bash
 ```
+
+A very interesting command is the `watch` command. The `man` page defines it as command that execute periodically, showing output on screen. Combined with `kubectl`, we can watch the execution of deployment, particularly with updates. 
+
+```bash
+watch -n 1 "kubectl get pods"
+```
+
+The above command will call the command in parenthesis every 1 second until we kill the process. Using it while introducing changes in a deployment file and reapplying it shows how `kubernetes` handle continuous deployment in real time. 
 
 
