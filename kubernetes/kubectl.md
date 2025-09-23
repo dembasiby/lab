@@ -136,4 +136,14 @@ watch -n 1 "kubectl get pods"
 
 The above command will call the command in parenthesis every 1 second until we kill the process. Using it while introducing changes in a deployment file and reapplying it shows how `kubernetes` handle continuous deployment in real time. 
 
+## Services
+Get Services
+```bash
+kubectl get service [-o wide]
+```
 
+Create a new service from a deployment
+
+```bash
+kubectl expose deployment [deployment] --port=[port]
+```
