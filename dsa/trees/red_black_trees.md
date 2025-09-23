@@ -21,6 +21,42 @@ class RBTree:
     self.nil.right = None
     self.root = self.nil
 
+  def rotate_left(self, pivot_parent):
+    if pivot_parent is self.nil or pivot_parent.right is self.nil:
+        return
+    pivot = pivot_parent.right
+    pivot_parent.right = pivot.left
+    
+    if pivot.left is not self.nil:
+        pivot.left.parent = pivot_parent
+    pivot.parent = pivot_parent.parent
+    
+    if pivot_parent is self.root:
+        self.root = pivot
+    elif pivot_parent is pivot_parent.parent.left:
+        pivot_parent.parent.left = pivot
+    elif pivot_parent is pivot_parent.parent.right:
+        pivot_parent.parent.right = pivot
+    pivot.left = pivot_parent
+    pivot_parent.parent = pivot
+
+  def rotate_right(self, pivot_parent):
+    if pivot_parent is self.nil or pivot_parent.left is self.nil:
+        return
+    pivot = pivot_parent.left
+    pivot_parent.left = pivot.right
+    if pivot.right is not self.nil:
+        pivot.right.parent = pivot_parent
+    pivot.parent = pivot_parent.parent
+    if pivot_parent is self.root:
+        self.root = pivot
+    elif pivot_parent is pivot_parent.parent.right:
+        pivot_parent.parent.right = pivot
+    elif pivot_parent is pivot_parent.parent.left:
+        pivot_parent.parent.left = pivot
+    pivot.right = pivot_parent
+    pivot_parent.parent = pivot
+
   def insert(self, val):
     node = RBNode(val)
     node.left = self.nil
