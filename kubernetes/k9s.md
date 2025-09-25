@@ -1,5 +1,7 @@
 # K9S
 
+`k9s` is a terminal-based UI to interact with your `kubernetes` clusters.
+
 ## Installation
 
 ```bash
