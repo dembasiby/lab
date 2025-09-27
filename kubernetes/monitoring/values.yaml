@@ -1,1 +1,2 @@
-adminPassword: password123
+grafana:
+  adminPassword: password123
