@@ -5,9 +5,6 @@
 ## Installation
 
 ```bash
-# Remove the broken snap
-sudo snap remove k9s
-
 # Get latest version (adjust if newer is out)
 curl -L https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_amd64.tar.gz -o k9s.tar.gz
 
