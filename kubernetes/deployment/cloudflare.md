@@ -19,3 +19,16 @@ echo "deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudf
 sudo apt-get update && sudo apt-get install cloudflared
 ```
 
+## Create a tunnel
+
+1. Login to cloudflare
+```bash
+cloudflared tunnel login
+```
+
+2. Create a tunnel
+```bash
+cloudflared tunnel create [tunnel name]
+```
+
+3. Copy tunnel id for future reference
